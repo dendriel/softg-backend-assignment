@@ -1,0 +1,16 @@
+POST http://127.0.0.1:5004/demo-project/europe-west3/api/v1/games
+Content-Type: application/json
+
+{
+  "name": "Catan: Seafarers 2",
+  "players": {
+    "min": 3,
+    "max": 4
+  },
+  "type": "Expansion",
+  "releaseYear": 1997,
+  "publisher": "Kosmos",
+  "baseGame": "1",
+  "expansions": ["2", "3"],
+  "standalone": false
+}
