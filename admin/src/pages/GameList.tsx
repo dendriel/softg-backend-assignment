@@ -6,7 +6,6 @@ import { GameTable, GameEntry } from '../components/GameTable';
 const { Content } = Layout;
 
 export const GameList: React.FC = () => {
-
   const [data, setData] = useState<GameEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -31,6 +30,19 @@ export const GameList: React.FC = () => {
     });
   }, []);
 
+  const handleDelete = async (id: string) => {
+    if (loading) {
+        console.warn("Loading in progress, cannot delete.");
+        return;
+    }
+    const res = await fetch(`/api/v1/games/${id}`, { method: 'DELETE' });
+    if (res.ok) {
+      setData(prev => prev.filter(game => game.id !== id));
+    } else {
+      window.alert('Failed to delete game. Please try again later.');
+    }
+  };
+
     return (
         <>
             <Content>
@@ -39,7 +51,7 @@ export const GameList: React.FC = () => {
                 ) : error ? (
                     <Alert type="error" message={error} />
                 ) : (
-                    <GameTable data={data} />
+                    <GameTable data={data} onDelete={handleDelete} />
                 )}
             </Content>
         </>
