@@ -105,7 +105,7 @@ export const GameSave: React.FC = () => {
 
     return (
   <>
-    <Content style={{ marginTop: 24 }}>
+    <Content style={{ marginTop: 24, marginLeft: 12, marginRight: 12 }}>
         <Breadcrumb style={{ margin: '16px 0' }}
                 items={[
                     {
