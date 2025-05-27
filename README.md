@@ -36,3 +36,8 @@ This project follows Conventional Commits for writting semantic commits messages
 
 - https://www.conventionalcommits.org/en/v1.0.0/#specification
 - https://callmeryan.medium.com/semantic-commit-messages-bcd60f75de1f
+
+
+# TODOs
+
+I've added a few TODOs over at some parts of the code for improvements or features that could be a V2 for this solution.
