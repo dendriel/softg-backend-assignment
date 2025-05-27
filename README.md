@@ -1,35 +1,38 @@
-# Game Backend Developer Assignment
+# Softg Games Manager
 
-This repository contains the boilerplate code for a coding assignment.
-You have received 4 assignment tasks in a separate PDF by email.
+This project provides a backoffice for managing games data. It has the following features:
 
-## Disclaimer
-
-*This boilerplate code is intentionally sloppy and incomplete.
-Follow best practices, identify the flaws and improve the code where you see fit.*
-
-## Preparation
-
-- Download and install the [Firebase CLI](https://firebase.google.com/docs/cli)
-- Download this repository as a zip (don't fork or clone) and commit the initial state to a new public repository of your choice (e.g. on Github).
-- Commit your changes in meaningful units and speaking commit messages
+- Web Admin for Create, Update, Delete and List available games
+- A tool for importing data from a JSON file into Firestore
 
 
-## We have provided the boilerplate for:
-1. The Firebase scaffolding to run in the Firebase Emulator
-2. A `functions/` folder for cloud function endpoints based on express
-   - Currently just one endpoint to fetch games
-3. An `admin/` folder for an Admin frontend based on React and ant.design
-   - Currently just the Layout and the Table view of existing games
-      with a hardwired table content directly imported from a JSON file
-4. The `games.json` file to seed a Firestore database (the same JSON file
-   that's currently imported directly in the frontend)
+# Local Development
 
-*Note: Check the package.json scripts in the `functions/` and `admin/` folders*
+This project requires the following tools:
+
+- Node package manager (NPM)
+- [Firebase CLI](https://firebase.google.com/docs/cli)
+- REST Client (VS Code Externsion) for executing the test request from `functions/http-requests`
+- Docker CLI / Docker Server
+
+> Before anything else, initialize the projects at the root, `functions` and `admin` by running `npm i` commands.
 
 
-## We will evaluate your submission by:
+## Commands
 
-1. Cloning your repository
-2. Reviewing your code
-3. Running the package json scripts mentioned in the assignment PDF
+The following commands are available from the project root:
+
+- `serve` - builds the frontend and backend and serve them via firebase emulator
+- `buildImage` - builds a docker-image to execute the whole application inside a container
+- `start` - starts the docker image built using `buildImage`
+  - The frontend should be accessible at the URL `http://127.0.0.1:5002/`
+- `seed` - loads data from `games.json` into the firestore database
+
+The commands `buildImage`, `start` and `seed` can be executed in order so we can have the solution running over docker and loaded with testing data.
+
+## Commits
+
+This project follows Conventional Commits for writting semantic commits messages.
+
+- https://www.conventionalcommits.org/en/v1.0.0/#specification
+- https://callmeryan.medium.com/semantic-commit-messages-bcd60f75de1f
