@@ -1,6 +1,6 @@
 import { getFirestore } from '../../gateway/firestore';
 import { memoize } from '../../utils';
-import { NewGameDto } from './dtos';
+import { NewGameDto, NewGameResponseDto } from './dtos';
 import { Game } from './';
 
 const getCollection = memoize(() =>
@@ -29,10 +29,10 @@ export async function getGames(): Promise<Game[]> {
  * @param game The game to be added.
  * @returns the ID of the added game.
  */
-export async function addGame(game: NewGameDto): Promise<string> {
+export async function addGame(game: NewGameDto): Promise<NewGameResponseDto> {
   const collection = getCollection();
   const addedGame = await collection.add(game);
-  return addedGame.id.toString();
+  return { "id": addedGame.id.toString() };
 }
 
 /**

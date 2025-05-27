@@ -21,6 +21,7 @@ function actions(_text: any, record: GameEntry) {
       </>
 }
 
+// TODO: add some approach to quick-show all data from a game entry (e.g. on hovering the mouse over the row)
 const tableColumns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   { title: 'Year', dataIndex: 'releaseYear', key: 'releaseYear' },

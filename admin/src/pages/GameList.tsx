@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Layout, Spin, Alert } from 'antd';
 import { GameTable, GameEntry } from '../components/GameTable';
@@ -31,6 +30,7 @@ export const GameList: React.FC = () => {
         setLoading(false);
     });
   }, []);
+
     return (
         <>
             <Header style={{ color: 'white', fontSize: '18px', backgroundColor: '#223355' }}>Games List</Header>
