@@ -9,12 +9,18 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
 app.use('/', router);
+
+// Catch-all route for undefined paths
 app.use((_req, res, next) => {
   next(new HttpError('Path not found', 404));
 });
+
+// Error handling middleware
 app.use((err: unknown, req: Request, res: Response, _next: NextFunction) => {
   console.error('Received error:', err);
+
   if (err instanceof Error) {
     const statusCode = err instanceof HttpError ? err.statusCode : 500;
     res.status(statusCode).json({
