@@ -15,12 +15,13 @@ export default defineConfig({
     __APP_ENV__: JSON.stringify(env),
   },
   // Forward requests to the Firebase Functions API. In production we should have a proxy with this kind of rules.
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5004/demo-project/europe-west3/',
-        changeOrigin: true,
-      },
-    },
-  },
+  // Allows to execute in stand-alone mode (without firebase-emulator)
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://localhost:5004/demo-project/europe-west3/',
+  //       changeOrigin: true,
+  //     },
+  //   },
+  // },
 });

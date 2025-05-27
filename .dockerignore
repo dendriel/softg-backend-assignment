@@ -1,0 +1,13 @@
+node_modules
+**/node_modules
+lib
+dist
+*.log
+.env
+*.tsbuildinfo
+coverage
+.DS_Store
+http-requests
+.git
+.gitignore
+firebase.json

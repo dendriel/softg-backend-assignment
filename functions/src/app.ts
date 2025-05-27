@@ -10,11 +10,11 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use('/', router);
+app.use('/api', router);
 
 // Catch-all route for undefined paths
-app.use((_req, _res, next) => {
-  next(new HttpError('Path not found', 404));
+app.use((req, _res, next) => {
+  next(new HttpError(`Path not found: ${req.path}`, 404));
 });
 
 // Error handling middleware
