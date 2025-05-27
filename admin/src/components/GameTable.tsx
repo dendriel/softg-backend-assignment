@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Table, Button, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { Popconfirm } from 'antd';
 
 export interface GameEntry {
     id: string;
@@ -17,41 +18,26 @@ interface GameTableProps {
 export const GameTable: React.FC<GameTableProps> = ({ data, onDelete }) => {
 
   const navigate = useNavigate();
-  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
-  const [deleteInProgress, setDeleteInProgress] = useState(false);
 
-  function handleDelete(id: string) {
-    if (deleteInProgress) {
-      console.warn("Delete operation is already in progress.");
-      return;
-    }
-
-    // If double-clicked the same row, confirm deletion
-    if (confirmDeleteId === id) {
-      console.log(`Deleting game with id: ${id}`);
-      setDeleteInProgress(true);
-
-      onDelete(id);
-
-      setDeleteInProgress(false);
-      setConfirmDeleteId(null);
-      return;
-    }
-    // Setup deletion watcher to wait for the next click.
-    else {
-      setConfirmDeleteId(id);    
-      // Reset confirmation after 2 seconds if not confirmed or changed the row to delete
-      setTimeout(() => {
-        setConfirmDeleteId(current => (current === id ? null : current));
-      }, 2000);
-    }
+  function handleDeleteButton(id: string) {
+    return <>
+      <Popconfirm
+          title="Delete the Game"
+          description="Are you sure you want to delete this game?"
+          onConfirm={() => onDelete(id)}
+          okText="Yes"
+          cancelText="No"
+        >
+          <Button danger>Delete</Button>
+      </Popconfirm>
+    </>
   }
 
   function actions(_text: any, record: GameEntry) {
         return <>
           <Space>
               <Button type="primary" onClick={() => navigate(`/edit/${record.id}`)}>Edit</Button>
-              <Button danger onClick={() => handleDelete(record.id)} style={{ marginLeft: 8 }}>Delete</Button>
+              {handleDeleteButton(record.id)}
           </Space>
         </>
   }
