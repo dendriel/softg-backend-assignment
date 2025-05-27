@@ -3,7 +3,7 @@ import { Layout, Spin, Alert } from 'antd';
 import { GameTable, GameEntry } from '../components/GameTable';
 
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 export const GameList: React.FC = () => {
 
@@ -33,7 +33,6 @@ export const GameList: React.FC = () => {
 
     return (
         <>
-            <Header style={{ color: 'white', fontSize: '18px', backgroundColor: '#223355' }}>Games List</Header>
             <Content>
                 {loading ? (
                     <Spin />
