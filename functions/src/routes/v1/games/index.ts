@@ -17,7 +17,7 @@ gamesRouter.get(
 
 gamesRouter.post(
   '/',
-  wrapAsync(async (req, res) => {
+  wrapAsync(async (req, _res) => {
     const gameData = req.body;
     if (!gameData) {
         throw new HttpError('Game data is required', 400);
@@ -34,7 +34,7 @@ gamesRouter.post(
 
 gamesRouter.delete(
   '/:id',
-  wrapAsync(async (req, res) => {
+  wrapAsync(async (req, _res) => {
     const { id } = req.params;
     if (!id) {
       throw new HttpError('Game ID is required', 400);
@@ -50,7 +50,7 @@ gamesRouter.delete(
 
 gamesRouter.patch(
   '/:id',
-  wrapAsync(async (req, res) => {
+  wrapAsync(async (req, _res) => {
     const { id } = req.params;
     const gameData = req.body;
     if (!id || !gameData) {

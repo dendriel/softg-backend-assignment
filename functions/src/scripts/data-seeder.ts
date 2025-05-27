@@ -17,7 +17,7 @@ const args = process.argv.slice(2);
 
 const filePath = args[0];
 const collection = args[1];
-const keyProperty = args[2]; // optional. 'id' field will be used as default.
+const keyProperty = args[2] || null; // optional. 'id' field will be used as default.
 
 if (!filePath || !collection) {
     console.error('Usage: node data-seeder.js <filePath> <collection> [keyProperty]');
@@ -78,7 +78,11 @@ async function seedData(filePath: string, collection: string) {
         }
 
         // Use provided keyProperty or default to 'id'
-        const docId = item[keyProperty] || item.id;
+        const docId = keyProperty ? item[keyProperty] : item.id;
+        if (!docId) {
+            console.error(`Item is missing the key property '${keyProperty || 'id'}'. Skipping item.`, item);
+            return;
+        }
 
         const ref = db.collection(collection).doc(docId);
         batch.set(ref, item);

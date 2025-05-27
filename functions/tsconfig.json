@@ -3,12 +3,19 @@
     "module": "NodeNext",
     "esModuleInterop": true,
     "moduleResolution": "nodenext",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
     "outDir": "lib",
     "sourceMap": true,
+    "target": "es2017",
+
+    /* Linting */
     "strict": true,
-    "target": "es2017"
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
   },
   "compileOnSave": true,
   "include": [
