@@ -1,4 +1,4 @@
-import { getFirestore } from './getFirestore.js';
+import { getFirestore } from '../../gateway/firestore/getFirestore.js';
 import { memoize } from '../../utils/memoize.js';
 import { HttpError } from '../../classes/HttpError.js';
 
