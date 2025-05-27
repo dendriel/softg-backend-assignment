@@ -14,12 +14,12 @@ const getCollection = memoize(() =>
  */
 export async function getGames(): Promise<Game[]> {
   const result = await getCollection().get();
-  return result.docs.map((snap) => {
+  return result.docs.map((doc) => {
     // Map manually so we can include the ID in the result. Cover entries with auto-generated IDs.
-    const data = snap.data();
+    const data = doc.data();
     return {
       ...data,
-      id: snap.id,
+      id: doc.id,
     };
   }) as Game[];
 }
@@ -38,11 +38,24 @@ export async function addGame(game: NewGameDto): Promise<NewGameResponseDto> {
 /**
  * Deletes a game by its ID.
  * @param id The ID of the game to be deleted.
- * @returns A promise that resolves when the game is deleted.
  */
 export async function deleteGame(id: string): Promise<void> {
   const collection = getCollection();
   await collection.doc(id).delete();
+}
+
+/**
+ * Get a game by its ID.
+ * @param id The ID of the game to be fetch.
+ */
+export async function getGame(id: string): Promise<Game | null> {
+  const collection = getCollection();
+  const doc = await collection.doc(id).get();
+  if (!doc.exists) {
+    return null;
+  }
+
+  return { ...doc.data(), id: doc.id } as Game;
 }
 
 /**
