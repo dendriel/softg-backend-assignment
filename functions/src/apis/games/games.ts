@@ -1,6 +1,6 @@
 import { getFirestore } from '../../gateway/firestore';
 import { memoize } from '../../utils';
-import { NewGameDto, NewGameResponseDto } from './dtos';
+import { SaveGameDto, SaveGameResponseDto } from './dtos';
 import { Game } from './';
 
 const getCollection = memoize(() =>
@@ -29,7 +29,7 @@ export async function getGames(): Promise<Game[]> {
  * @param game The game to be added.
  * @returns the ID of the added game.
  */
-export async function addGame(game: NewGameDto): Promise<NewGameResponseDto> {
+export async function addGame(game: SaveGameDto): Promise<SaveGameResponseDto> {
   const collection = getCollection();
   const addedGame = await collection.add(game);
   return { "id": addedGame.id.toString() };
@@ -63,7 +63,7 @@ export async function getGame(id: string): Promise<Game | null> {
  * @param id The ID of the game to be updated.
  * @param game The data to be updated in the game (absent fields won't be modified).
  */
-export async function editGame(id: string, game: NewGameDto): Promise<void> {
+export async function editGame(id: string, game: SaveGameDto): Promise<void> {
   const collection = getCollection();
   await collection.doc(id).set(game, { merge: true });
 }

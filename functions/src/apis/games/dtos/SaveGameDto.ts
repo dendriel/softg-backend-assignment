@@ -1,5 +1,5 @@
 /**
- * DTOs for creating a new game.
+ * DTOs for creating/updating a game.
  */
 
 export interface Players {
@@ -7,7 +7,7 @@ export interface Players {
   max?: number;
 }
 
-export interface NewGameDto {
+export interface SaveGameDto {
     name: string;
     players: Players;
     type: string;

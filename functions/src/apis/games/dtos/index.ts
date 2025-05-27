@@ -1,3 +1,2 @@
-
-export * from './NewGameDto.js';
-export * from './NewGameResponseDto.js';
+export * from './SaveGameDto.js';
+export * from './SaveGameResponseDto.js';
