@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   Button,
   Space,
   Popconfirm,
+  type TablePaginationConfig,
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,11 +17,45 @@ export interface GameEntry {
 
 interface GameTableProps {
     data: GameEntry[];
+    total: number;
+    setCurrPage: (page: number) => void;
+    setPageSize: (size: number) => void;
     onDelete: (id: string) => void;
 }
 
-const GameTable: React.FC<GameTableProps> = ({ data, onDelete }: GameTableProps) => {
+const GameTable: React.FC<GameTableProps> = ({
+  data, total, onDelete, setCurrPage, setPageSize,
+}:
+  GameTableProps) => {
   const navigate = useNavigate();
+  const [pagination, setPagination] = useState<TablePaginationConfig>({
+    current: 1,
+    pageSize: 10,
+    total,
+    showSizeChanger: true,
+    showTotal: showTotalPages,
+  });
+
+  function onPaginationChanged(newPagination: TablePaginationConfig) {
+    console.log('Pagination changed:', newPagination);
+
+    const currPage = newPagination.current || 1;
+    const pageSize = newPagination.pageSize || 10;
+    setCurrPage(currPage);
+    setPageSize(pageSize);
+
+    setPagination({
+      current: currPage,
+      pageSize,
+      total,
+      showSizeChanger: true,
+      showTotal: showTotalPages,
+    });
+  }
+
+  function showTotalPages(newTotal: number, range: [number, number]) {
+    return `${range[0]}-${range[1]} of ${newTotal} games`;
+  }
 
   function handleDeleteButton(id: string) {
     return <>
@@ -55,7 +90,12 @@ const GameTable: React.FC<GameTableProps> = ({ data, onDelete }: GameTableProps)
   ];
 
   return (
-    <Table dataSource={data.map((item) => ({ ...item, key: item.id }))} columns={tableColumns} />
+    <Table
+      dataSource={data.map((item) => ({ ...item, key: item.id }))}
+      columns={tableColumns}
+      pagination={pagination}
+      onChange={onPaginationChanged}
+    />
   );
 };
 

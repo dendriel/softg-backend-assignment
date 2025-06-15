@@ -4,21 +4,30 @@ import GameTable, { GameEntry } from '../components/GameTable.tsx';
 
 const { Content } = Layout;
 
+type GamesPaginatedDto = {
+  data: GameEntry[];
+  total: number;
+};
+
 const GameList: React.FC = () => {
+  const [currPage, setCurrPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [data, setData] = useState<GameEntry[]>([]);
+  const [totalEntries, setTotalEntries] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/v1/games')
+    fetch(`/api/v1/games?page=${currPage}&pageSize=${pageSize}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }
         return res.json();
       })
-      .then((games: GameEntry[]) => {
-        setData(games);
+      .then((gamesPaginated: GamesPaginatedDto) => {
+        setData(gamesPaginated.data);
+        setTotalEntries(gamesPaginated.total);
       })
       .catch((err) => {
         console.error('Error fetching games:', err);
@@ -27,7 +36,7 @@ const GameList: React.FC = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [currPage, pageSize]);
 
   const handleDelete = async (id: string) => {
     if (loading) {
@@ -50,7 +59,13 @@ const GameList: React.FC = () => {
                 ) : error ? (
                     <Alert type="error" message={error} />
                 ) : (
-                    <GameTable data={data} onDelete={handleDelete} />
+                    <GameTable
+                      data={data}
+                      total={totalEntries}
+                      setCurrPage={setCurrPage}
+                      setPageSize={setPageSize}
+                      onDelete={handleDelete}
+                      />
                 )}
             </Content>
         </>

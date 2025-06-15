@@ -9,6 +9,7 @@
     "dev": "vite --force",
     "test": "vitest run --coverage",
     "build": "tsc && vite build",
+    "build:watch": "npx vite build --watch",
     "lint": "eslint . --ext .ts,.tsx",
     "preview": "vite preview",
     "hardUpdate": "npx -y rimraf node_modules/ package-lock.json ; npm i"
