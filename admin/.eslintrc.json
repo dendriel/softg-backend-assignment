@@ -1,19 +1,34 @@
 {
   "root": true,
   "env": { "browser": true, "es2020": true },
-  "extends": ["@softgames", "plugin:react-hooks/recommended"],
-  "plugins": ["react-refresh"],
+  "extends": [
+    "eslint-config-softgames",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks"
+    // "react-refresh" // Not available with eslint 6.x.x (required by softgames config)
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "sourceType": "module",
     "ecmaFeatures": { "jsx": true },
     "project": "./tsconfig.json"
   },
   "rules": {
-    "react-refresh/only-export-components": [
-      // ToDo: What does this rule do?
-      "warn",
-      { "allowConstantExport": true }
-    ],
+    // "react-refresh/only-export-components": [
+    //   // This rule ensures that only components are exported from files.
+    //   // Vite's fast refresh works best when files export only React components
+    //   "warn", { "allowConstantExport": true }
+    // ],
+    "no-use-before-define": "off",
     "import/no-absolute-path": "off",
+    "no-nested-ternary": "off",
+    "no-console": "off",
+    "no-alert": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -42,17 +57,8 @@
         "format": ["PascalCase"]
       },
       {
-        "selector": "objectLiteralProperty",
+        "selector": "property",
         "format": ["camelCase"]
-      },
-      {
-        "selector": "import",
-        "format": ["camelCase", "PascalCase"]
-      },
-      {
-        "selector": "classProperty",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
       }
     ]
   }

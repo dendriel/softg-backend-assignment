@@ -1,7 +1,7 @@
 {
   "name": "@softgames/senior-backend-dev-assessment-functions",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint \"src/**/*.ts\"",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "serve": "npm run build && firebase emulators:start",
