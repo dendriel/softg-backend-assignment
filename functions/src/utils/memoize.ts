@@ -12,24 +12,27 @@ export type MemoizeOptions<T> = {
   resetAfterDone?: boolean;
 };
 
-export type Memo<T, K = undefined> = K extends undefined ? (() => T) & MemoExtension : ((key: K) => T) & MemoExtension;
+export type Memo<T, K = undefined> = K extends undefined ?
+  (() => T) & MemoExtension :
+  ((key: K) => T) & MemoExtension;
 
 type MemoGenericConstruct<T, K> = (key?: K) => T;
 
 // See https://en.wikipedia.org/wiki/Memoization
+/* eslint-disable @typescript-eslint/no-redeclare */
 export function memoize<T>(construct: () => T, options?: MemoizeOptions<T>): Memo<T>;
 export function memoize<T, K>(construct: (key: K) => T, options?: MemoizeOptions<T>): Memo<T, K>;
-export function memoize<T, K = never>(construct: MemoGenericConstruct<T, K>, options?: MemoizeOptions<T>): unknown {
+export function memoize<T, K = never>(
+  construct: MemoGenericConstruct<T, K>, options?: MemoizeOptions<T>): unknown {
   if (typeof construct !== 'function') {
     throw new Error(`Memoize construct function must be a function`);
   }
-  const { resetAfterDone = false } = options || {};
+  const {resetAfterDone = false} = options || {};
   if (typeof resetAfterDone !== 'boolean') {
     throw new Error('Option "resetAfterDone" must be a boolean if provided');
   }
-  let result: T | typeof NOT_DEFINED = options && 'initResult' in options && options.initResult !== undefined
-    ? options.initResult
-    : NOT_DEFINED;
+  let result: T | typeof NOT_DEFINED = options && 'initResult' in options &&
+    options.initResult !== undefined ? options.initResult : NOT_DEFINED;
   let success = false;
   let inProgress = false;
   const memo = (key?: K): T | typeof NOT_DEFINED => {
@@ -74,3 +77,4 @@ export function memoize<T, K = never>(construct: MemoGenericConstruct<T, K>, opt
   memo.inProgress = (): boolean => inProgress;
   return memo;
 }
+/* eslint-disable @typescript-eslint/no-redeclare */

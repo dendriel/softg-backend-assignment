@@ -1,4 +1,3 @@
-
 /**
  * Response DTO for saved games.
  */
