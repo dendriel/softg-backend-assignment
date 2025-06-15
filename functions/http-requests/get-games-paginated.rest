@@ -1,0 +1,2 @@
+GET http://127.0.0.1:5004/demo-project/europe-west3/admin/api/v1/games?page=1&pageSize=3
+Content-Type: application/json

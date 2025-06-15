@@ -1,14 +1,34 @@
 import {wrapAsync, createRouter} from '../../../utils';
-import {getGames, addGame, deleteGame, getGame, editGame, Game} from '../../../apis/games';
+import {
+  getGames,
+  getGamesPaginated,
+  addGame,
+  deleteGame,
+  getGame,
+  editGame,
+  Game,
+} from '../../../apis/games';
 import {newApiError} from '../../../utils';
 
 export const gamesRouter = createRouter();
 
 gamesRouter.get(
   '/',
-  wrapAsync(() => {
+  wrapAsync(async (req) => {
+    const {page, pageSize} = req.query;
+    const pageNumber = parseInt(page as string, 10);
+    const pageSizeNumber = parseInt(pageSize as string, 10);
+    if (isNaN(pageNumber) || isNaN(pageSizeNumber)) {
+      throw newApiError('Invalid page/pageSize parameters', 400);
+    }
+
     try {
-      return getGames();
+      if (page && pageSize) {
+        return getGamesPaginated(pageNumber, pageSizeNumber);
+      } else {
+        // DEPRECATED: Non-paginated API call
+        return getGames();
+      }
     } catch (error: unknown) {
       throw newApiError('Error while fetching games', error, 500);
     }

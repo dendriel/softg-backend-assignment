@@ -26,7 +26,7 @@
       {
         "source": "/api/**",
         "function": {
-          "functionId": "api",
+          "functionId": "admin",
           "region": "europe-west3",
           "pinTag": true
         }
