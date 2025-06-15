@@ -1,4 +1,4 @@
-PATCH http://127.0.0.1:5004/demo-project/europe-west3/api/v1/games/fDwUO2Scvk30j7Fyncvk
+PATCH http://127.0.0.1:5004/demo-project/europe-west3/admin/api/v1/games/fDwUO2Scvk30j7Fyncvk
 Content-Type: application/json
 
 {

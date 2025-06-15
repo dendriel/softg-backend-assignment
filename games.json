@@ -348,5 +348,479 @@
         "baseGame": "26",
         "standalone": false,
         "type": "Expansion"
+    },
+    {
+        "id": "28",
+        "name": "Terraforming Mars",
+        "releaseYear": 2016,
+        "players": {
+            "min": 1,
+            "max": 5
+        },
+        "publisher": "Stronghold Games",
+        "expansions": [
+            "29"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "29",
+        "name": "Terraforming Mars: Prelude",
+        "releaseYear": 2018,
+        "players": {
+            "min": 1,
+            "max": 5
+        },
+        "publisher": "Stronghold Games",
+        "baseGame": "28",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "30",
+        "name": "Brass: Birmingham",
+        "releaseYear": 2018,
+        "players": {
+            "min": 2,
+            "max": 4
+        },
+        "publisher": "Roxley Games",
+        "type": "BaseGame"
+    },
+    {
+        "id": "31",
+        "name": "Gaia Project",
+        "releaseYear": 2017,
+        "players": {
+            "min": 1,
+            "max": 4
+        },
+        "publisher": "Z-Man Games",
+        "type": "BaseGame"
+    },
+    {
+        "id": "32",
+        "name": "Great Western Trail",
+        "releaseYear": 2016,
+        "players": {
+            "min": 2,
+            "max": 4
+        },
+        "publisher": "Stronghold Games",
+        "expansions": [
+            "33"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "33",
+        "name": "Great Western Trail: Rails to the North",
+        "releaseYear": 2018,
+        "players": {
+            "min": 2,
+            "max": 4
+        },
+        "publisher": "Stronghold Games",
+        "baseGame": "32",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "34",
+        "name": "Power Grid",
+        "releaseYear": 2004,
+        "players": {
+            "min": 2,
+            "max": 6
+        },
+        "publisher": "Rio Grande Games",
+        "expansions": [
+            "35"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "35",
+        "name": "Power Grid: Factory Manager",
+        "releaseYear": 2009,
+        "players": {
+            "min": 2,
+            "max": 5
+        },
+        "publisher": "Rio Grande Games",
+        "baseGame": "34",
+        "standalone": true,
+        "type": "Expansion"
+    },
+    {
+        "id": "36",
+        "name": "Agricola",
+        "releaseYear": 2007,
+        "players": {
+            "min": 1,
+            "max": 5
+        },
+        "publisher": "Lookout Games",
+        "expansions": [
+            "37"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "37",
+        "name": "Agricola: Farmers of the Moor",
+        "releaseYear": 2009,
+        "players": {
+            "min": 1,
+            "max": 5
+        },
+        "publisher": "Lookout Games",
+        "baseGame": "36",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "38",
+        "name": "Puerto Rico",
+        "releaseYear": 2002,
+        "players": {
+            "min": 3,
+            "max": 5
+        },
+        "publisher": "Ravensburger",
+        "type": "BaseGame"
+    },
+    {
+        "id": "39",
+        "name": "Concordia",
+        "releaseYear": 2013,
+        "players": {
+            "min": 2,
+            "max": 5
+        },
+        "publisher": "PD-Verlag",
+        "expansions": [
+            "40"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "40",
+        "name": "Concordia: Salsa",
+        "releaseYear": 2014,
+        "players": {
+            "min": 2,
+            "max": 6
+        },
+        "publisher": "PD-Verlag",
+        "baseGame": "39",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "41",
+        "name": "Splendor",
+        "releaseYear": 2014,
+        "players": {
+            "min": 2,
+            "max": 4
+        },
+        "publisher": "Space Cowboys",
+        "type": "BaseGame"
+    },
+    {
+        "id": "42",
+        "name": "King of Tokyo",
+        "releaseYear": 2011,
+        "players": {
+            "min": 2,
+            "max": 6
+        },
+        "publisher": "Iello",
+        "expansions": [
+            "43"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "43",
+        "name": "King of Tokyo: Power Up!",
+        "releaseYear": 2012,
+        "players": {
+            "min": 2,
+            "max": 6
+        },
+        "publisher": "Iello",
+        "baseGame": "42",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "44",
+        "name": "Mansions of Madness",
+        "releaseYear": 2011,
+        "players": {
+            "min": 1,
+            "max": 5
+        },
+        "publisher": "Fantasy Flight Games",
+        "expansions": [
+            "45"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "45",
+        "name": "Mansions of Madness: Forbidden Alchemy",
+        "releaseYear": 2011,
+        "players": {
+            "min": 1,
+            "max": 5
+        },
+        "publisher": "Fantasy Flight Games",
+        "baseGame": "44",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "46",
+        "name": "Eclipse",
+        "releaseYear": 2011,
+        "players": {
+            "min": 2,
+            "max": 6
+        },
+        "publisher": "Lautapelit.fi",
+        "expansions": [
+            "47"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "47",
+        "name": "Eclipse: Rise of the Ancients",
+        "releaseYear": 2012,
+        "players": {
+            "min": 2,
+            "max": 9
+        },
+        "publisher": "Lautapelit.fi",
+        "baseGame": "46",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "48",
+        "name": "Arkham Horror",
+        "releaseYear": 2005,
+        "players": {
+            "min": 1,
+            "max": 8
+        },
+        "publisher": "Fantasy Flight Games",
+        "expansions": [
+            "49"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "49",
+        "name": "Arkham Horror: Dunwich Horror",
+        "releaseYear": 2006,
+        "players": {
+            "min": 1,
+            "max": 8
+        },
+        "publisher": "Fantasy Flight Games",
+        "baseGame": "48",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "50",
+        "name": "Everdell",
+        "releaseYear": 2018,
+        "players": {
+            "min": 1,
+            "max": 4
+        },
+        "publisher": "Starling Games",
+        "expansions": [
+            "51"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "51",
+        "name": "Everdell: Pearlbrook",
+        "releaseYear": 2019,
+        "players": {
+            "min": 1,
+            "max": 4
+        },
+        "publisher": "Starling Games",
+        "baseGame": "50",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "52",
+        "name": "Robinson Crusoe",
+        "releaseYear": 2012,
+        "players": {
+            "min": 1,
+            "max": 4
+        },
+        "publisher": "Portal Games",
+        "expansions": [
+            "53"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "53",
+        "name": "Robinson Crusoe: Voyage of the Beagle",
+        "releaseYear": 2013,
+        "players": {
+            "min": 1,
+            "max": 4
+        },
+        "publisher": "Portal Games",
+        "baseGame": "52",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "54",
+        "name": "Machi Koro",
+        "releaseYear": 2012,
+        "players": {
+            "min": 2,
+            "max": 4
+        },
+        "publisher": "IDW Games",
+        "expansions": [
+            "55"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "55",
+        "name": "Machi Koro: Harbor Expansion",
+        "releaseYear": 2013,
+        "players": {
+            "min": 2,
+            "max": 5
+        },
+        "publisher": "IDW Games",
+        "baseGame": "54",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "56",
+        "name": "Dead of Winter",
+        "releaseYear": 2014,
+        "players": {
+            "min": 2,
+            "max": 5
+        },
+        "publisher": "Plaid Hat Games",
+        "expansions": [
+            "57"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "57",
+        "name": "Dead of Winter: The Long Night",
+        "releaseYear": 2016,
+        "players": {
+            "min": 2,
+            "max": 11
+        },
+        "publisher": "Plaid Hat Games",
+        "baseGame": "56",
+        "standalone": true,
+        "type": "Expansion"
+    },
+    {
+        "id": "58",
+        "name": "Viticulture",
+        "releaseYear": 2013,
+        "players": {
+            "min": 1,
+            "max": 6
+        },
+        "publisher": "Stonemaier Games",
+        "expansions": [
+            "59"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "59",
+        "name": "Viticulture: Tuscany",
+        "releaseYear": 2014,
+        "players": {
+            "min": 1,
+            "max": 6
+        },
+        "publisher": "Stonemaier Games",
+        "baseGame": "58",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "60",
+        "name": "Betrayal at House on the Hill",
+        "releaseYear": 2004,
+        "players": {
+            "min": 3,
+            "max": 6
+        },
+        "publisher": "Avalon Hill",
+        "type": "BaseGame"
+    },
+    {
+        "id": "61",
+        "name": "Eldritch Horror",
+        "releaseYear": 2013,
+        "players": {
+            "min": 1,
+            "max": 8
+        },
+        "publisher": "Fantasy Flight Games",
+        "expansions": [
+            "62"
+        ],
+        "type": "BaseGame"
+    },
+    {
+        "id": "62",
+        "name": "Eldritch Horror: Forsaken Lore",
+        "releaseYear": 2014,
+        "players": {
+            "min": 1,
+            "max": 8
+        },
+        "publisher": "Fantasy Flight Games",
+        "baseGame": "61",
+        "standalone": false,
+        "type": "Expansion"
+    },
+    {
+        "id": "63",
+        "name": "Lords of Waterdeep",
+        "releaseYear": 2012,
+        "players": {
+            "min": 2,
+            "max": 5
+        },
+        "publisher": "Wizards of the Coast",
+        "expansions": [
+            "64"
+        ],
+        "type": "BaseGame"
     }
 ]
