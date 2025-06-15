@@ -1,4 +1,4 @@
-import { SaveGameDto } from './dtos';
+import {SaveGameDto} from './dtos';
 
 /**
  * Represents a game entity with its details.

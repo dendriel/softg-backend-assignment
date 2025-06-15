@@ -1,6 +1,6 @@
-import { wrapAsync, createRouter } from '../../../utils';
-import { getGames, addGame, deleteGame, getGame, editGame, Game } from '../../../apis/games';
-import { newApiError } from '../../../utils';
+import {wrapAsync, createRouter} from '../../../utils';
+import {getGames, addGame, deleteGame, getGame, editGame, Game} from '../../../apis/games';
+import {newApiError} from '../../../utils';
 
 export const gamesRouter = createRouter();
 
@@ -9,72 +9,72 @@ gamesRouter.get(
   wrapAsync(() => {
     try {
       return getGames();
-    } catch (error) {
+    } catch (error: unknown) {
       throw newApiError('Error while fetching games', error, 500);
     }
-  })
+  }),
 );
 
 gamesRouter.post(
   '/',
-  wrapAsync(async (req, _res) => {
+  wrapAsync(async (req) => {
     const gameData = req.body;
     if (!gameData) {
-        throw newApiError('Game data is required', 400);
+      throw newApiError('Game data is required', 400);
     }
 
     try {
-      const newGame = await addGame(gameData)
+      const newGame = await addGame(gameData);
       return newGame;
-    } catch (error) {
+    } catch (error: unknown) {
       throw newApiError('Error while creating a new game', error, 500);
     }
-  }, 201)
+  }, 201),
 );
 
 gamesRouter.delete(
   '/:id',
-  wrapAsync(async (req, _res) => {
-    const { id } = req.params;
+  wrapAsync(async (req) => {
+    const {id} = req.params;
     if (!id) {
       throw newApiError('Game ID is required', 400);
     }
-    
+
     try {
       await deleteGame(id);
-    } catch (error) {
-      throw newApiError(`Error while deleting game with ID ${id}`, 500);
+    } catch (error: unknown) {
+      throw newApiError(`Error while deleting game with ID ${id}`, error, 500);
     }
-  }, 204)
+  }, 204),
 );
 
 
 gamesRouter.get(
   '/:id',
-  wrapAsync(async (req, _res) => {
-    const { id } = req.params;
+  wrapAsync(async (req) => {
+    const {id} = req.params;
     if (!id) {
       throw newApiError('Game ID is required', 400);
     }
-    
+
     let game: Game | null = null;
     try {
       game = await getGame(id);
-    } catch (error) {
-      throw newApiError(`Error while fetching game with ID ${id}`, 500);
+    } catch (error: unknown) {
+      throw newApiError(`Error while fetching game with ID ${id}`, error, 500);
     }
 
     if (!game) {
       throw newApiError(`Game with ID ${id} not found`, 404);
     }
     return game;
-  })
+  }),
 );
 
 gamesRouter.patch(
   '/:id',
-  wrapAsync(async (req, _res) => {
-    const { id } = req.params;
+  wrapAsync(async (req) => {
+    const {id} = req.params;
     const gameData = req.body;
     if (!id || !gameData) {
       throw newApiError('Game ID and data are required', 400);
@@ -82,8 +82,8 @@ gamesRouter.patch(
 
     try {
       await editGame(id, gameData);
-    } catch (error) {
-      throw newApiError(`Error while updating game with ID ${id}`, 500);
+    } catch (error: unknown) {
+      throw newApiError(`Error while updating game with ID ${id}`, error, 500);
     }
-  })
+  }),
 );

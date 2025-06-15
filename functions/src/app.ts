@@ -1,7 +1,7 @@
-import express, { type Express, type NextFunction, type Response, type Request } from 'express';
+import express, {type Express, type Response, type Request} from 'express';
 import morgan from 'morgan';
 import router from './routes/index.js';
-import { HttpError } from './types/HttpError.js';
+import {HttpError} from './types/HttpError.js';
 
 export const app: Express = express();
 
@@ -18,7 +18,7 @@ app.use((req, _res, next) => {
 });
 
 // Error handling middleware
-app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
+app.use((err: unknown, _req: Request, res: Response) => {
   console.error('Received error:', err);
 
   if (err instanceof Error) {

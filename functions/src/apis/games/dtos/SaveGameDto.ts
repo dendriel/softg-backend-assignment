@@ -17,5 +17,5 @@ export interface SaveGameDto {
     expansions?: string[];
     standalone?: boolean;
     // If we want to be strict with type. But it would require changing the code for each new type.
-    //type: 'BaseGame' | 'Expansion' 
+    // type: 'BaseGame' | 'Expansion'
 }

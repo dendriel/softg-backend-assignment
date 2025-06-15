@@ -19,7 +19,7 @@ export default defineConfig({
   // server: {
   //   proxy: {
   //     '/api': {
-  //       target: 'http://localhost:5004/demo-project/europe-west3/',
+  //       target: 'http://localhost:5004/demo-project/europe-west3/api',
   //       changeOrigin: true,
   //     },
   //   },
