@@ -36,3 +36,11 @@ app.use((err: unknown, _req: Request, res: Response) => {
     });
   }
 });
+
+// Only start server if this file is run directly (useful for debugging)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
